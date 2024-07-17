@@ -10,10 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loading-screen">
+      <img id="loading-gif" src="./vid/IMG-7847-unscreen.gif" alt="Loading..."> 
+        <div id="loading-bar"></div>
+        <div id="loading-text"></div>
+    </div>
+
     <header>
         <div class="profile">
             <div class="avatar">
-                <img src="./img/info/avatar.png" alt="">
+                <img src="./img/info/avatar.svg" alt="">
             </div>
             <div class="info">
                 <h1>Iury Dantas</h1>
@@ -94,14 +100,14 @@
                 <div class="site">
                     <a href="">
                         <img src="./img/links/Designsite.svg" alt="Design Portfolio">
-                        <p>Agência Site</p>
+                        <p>Design Portfolio</p>
                     </a>
                 </div>
             </div>
 
             <div class="contact">
                 <a href="" class="contact">
-                    <img src="./img/links/contato.png" alt="contato">
+                    <img src="./img/links/contato.svg" alt="contato">
                     <h3>Entre em contato!</h3>
                     <h4>Faça seu orçamento</h4>
                     <p>CLIQUE AQUI</p>
@@ -116,5 +122,25 @@
     
     <footer>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let width = 0;
+            let interval = setInterval(function() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    document.getElementById('loading-screen').style.opacity = 0;
+                    setTimeout(function() {
+                        document.getElementById('loading-screen').style.display = 'none';
+                    }, 500);
+                } else {
+                    width++;
+                    document.getElementById('loading-bar').style.width = width + '%';
+                    document.getElementById('loading-text').innerText = width + '%';
+                }
+            }, 10); 
+        });
+    </script>
 </body>
 </html>
+
